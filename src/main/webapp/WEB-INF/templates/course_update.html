@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update course</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<!--<form th:action="@{/course}" method="post" enctype="multipart/form-data">-->
+<!--    <input type="hidden" name="_method" value="put">-->
+<!--    <input type="hidden" name="id" th:value="${course.cId}">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--                        <td>课程图片</td>-->
+<!--                        <td>-->
+<!--                            <input type="file" name="logoImage" />-->
+<!--                        </td>-->
+
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td colspan="2">-->
+<!--                <input type="submit" value="update">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
+<form th:action="@{/course/t}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="post" >
+    <input type="hidden" name="id" th:value="${course.cId}">
+    <table>
+        <tr>
+            <th colspan="2">修改课程表</th>
+        </tr>
+
+        <tr>
+                <input type="hidden" name="cId" th:value="${course.cId}">
+        </tr>
+        <tr>
+            <input type="hidden" name="image" th:value="${course.image}">
+        </tr>
+        <tr>
+            <td>课程名</td>
+            <td>
+                <input type="text" name="name" th:value="${course.name}">
+            </td>
+        </tr>
+        <tr>
+            <td>课程图片</td>
+            <td>
+                <input type="file" name="logoImage" />
+            </td>
+        </tr>
+        <tr>
+            <td>课时数</td>
+            <td>
+                <input type="text" name="hours" th:value="${course.hours}">
+            </td>
+        </tr>
+        <tr>
+            <td>开设学院</td>
+            <td>
+                <input type="text" name="schools" th:value="${course.schools}">
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="update">
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+
+</script>
+</body>
+</html>

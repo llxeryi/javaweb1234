@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.ssm.mapper.CourseMapper">
+
+
+    <!--List<Employee> getAllCourse();-->
+    <select id="getAllCourse" resultType="Course">
+        select * from c_course order by schools
+    </select>
+
+
+<!--    getCourseByCId(Integer cId);-->
+    <select id="getCourseByCId" resultType="Course">
+        select * from c_course where c_id = #{cId}
+    </select>
+
+
+<!--    public int updateCourse(Course course);-->
+<update id="updateCourse" parameterType="Course">
+    update c_course
+    set name=#{name},hours=#{hours},schools=#{schools},image=#{image}
+    where c_id = #{cId}
+</update>
+
+
+<!--    public int deleteCourseByCId(Integer cId);-->
+    <delete id="deleteCourseByCId">
+        delete from c_course where c_id = #{cId}
+    </delete>
+
+
+<!--    public int addCourse();-->
+    <insert id="addCourse">
+
+        insert into c_course  values(null,#{name},#{hours},#{schools},#{image})
+<!--        SELECT #{name}-->
+<!--        FROM c_course-->
+    </insert>
+
+
+<!--    public  Course findCourseByName(String name);-->
+    <select id="findCourseByName" resultType="Course">
+        select * from c_course where name = #{name}
+    </select>
+<!--    public int updateCourseBy(Integer hours);-->
+    <update id="updateCourseBy">
+        update c_course
+        set name=#{name}
+        where c_id = #{cId}
+    </update>
+</mapper>

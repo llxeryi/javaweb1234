@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.ssm.mapper.UserMapper">
+
+<!--    public User findOne(User user);-->
+    <select id="findOne" parameterType="User" resultType="User">
+        SELECT * FROM c_user where email=#{email} and pwd=#{pwd}
+    </select>
+
+<!--    public  User checkReg(String email);-->
+    <select id="checkReg" resultType="User">
+        select * from c_user where email=#{email}
+    </select>
+
+<!--    public  int addOne(User user);-->
+    <insert id="addOne" parameterType="User" >
+        insert into c_user(email,pwd) values(#{email},#{pwd})
+    </insert>
+</mapper>
